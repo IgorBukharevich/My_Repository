@@ -53,7 +53,7 @@ data = {
 }
 # writing data to a JSON file
 with open('id_people.json', 'w') as file:
-    json.dump(data, file)
+    json.dump(data, file, indent=4)
 
 # reading a JSON file
 with open('id_people.json', 'r') as file:
