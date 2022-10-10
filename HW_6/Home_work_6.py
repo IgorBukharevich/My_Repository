@@ -37,7 +37,7 @@ As a result, 4 lines should start with a new line.
 
 
 """
-Task 3
+Task 3/4
 Create a dictionary with a 6-digit number (id) as the key,
 and a tuple consisting of 2 elements as values - name(str), age(int).
 Make about 5-6 dictionary elements. Write this dictionary to disk in a json file.
