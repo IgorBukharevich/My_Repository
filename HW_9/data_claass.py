@@ -10,7 +10,6 @@ import time
 @dataclass
 class GameInfo:
     """creating dataclass"""
-
     title: str
     developer: str
     publisher: str
@@ -26,7 +25,6 @@ class SomeClass:
 
     def __init__(self, book):
         # initializing attributes
-
         self.book = book
 
     def show_data(self):
@@ -54,7 +52,6 @@ class SomeClass:
     @classmethod
     def show_massage(cls):
         """message output"""
-
         print(cls.load_text)
 
 
