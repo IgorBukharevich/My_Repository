@@ -17,3 +17,5 @@ Hi there!
 - HW_8: OOP part 1
 
 - HW_9: OOP part 2
+
+- HW_10: Exceptions
