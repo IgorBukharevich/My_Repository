@@ -19,3 +19,5 @@ Hi there!
 - HW_9: OOP part 2
 
 - HW_10: Exceptions
+
+- HW_11: Generator/Regular Expressions
