@@ -8,6 +8,7 @@ class ValidateEmail:
     """class ValidateEmail"""
 
     def __init__(self, email):
+        """initialize attribute"""
         self.email = email
 
     def check_email(self):
