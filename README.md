@@ -21,3 +21,7 @@ Hi there!
 - HW_10: Exceptions
 
 - HW_11: Generator/Regular Expressions
+
+- HW_12: Database and SQL part 1
+                          
+- HW_13: Database and SQL part 2
