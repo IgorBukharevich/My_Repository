@@ -1,0 +1,60 @@
+"""
+After adding the data to the table, fill in the data in the table
+"groups" : teacher_id, students_id ->
+-> next in the table "group": group_id (according to the available ids in the table).
+"""
+
+# Add info Table "teacher"
+INSERT INTO db_info.teachers (first_name,last_name,email,telephone,specialized) VALUES
+('Simen', 'Afanasinov', 'afanasim@gmail.com', '+375291234565', 'Python-Developer'),
+('Maksim', 'Geronov', 'maksialt@gmail.com', '+375293222131', 'Java-Developer'),
+('Valodya', 'Fedorov', 'valodya.fe@gmail.com', '+375291234135', 'Back-end Developer'),
+('Viktoria', 'Cherkasova', 'vik.cher@gmail.com', '+375293453124', 'Frond-end Developer'),
+('Sysanna', 'Perepelka', 'sys.anna@gmail.com', '+375293453434', 'GemeDev');
+
+# Add info Table "students"
+INSERT INTO db_info.students (first_name,last_name,email,telephone) VALUES
+('Oleg', 'Barabanov', 'baraban@gmail.com', '+375291234565'),
+('Afgustin', 'limonov', 'limon@gmail.com', '+375293222131'),
+('Petya', 'Fedorov', 'fedorov.p@gmail.com', '+375291234135'),
+('Alesya', 'Smirnova', 'alesya.smirnova@gmail.com', '+375293453124'),
+('Nina', 'Pavlovec', 'nina.pavl@gmail.com', '+375293453434');
+
+# Add info Table "groups"
+INSERT INTO db_info.groups
+(name_group) VALUES
+('A-10'),
+('B-15'),
+('C-20'),
+('D-25'),
+('D-25');
+
+# Add info Table "course"
+INSERT INTO db_info.course
+(name_course) VALUES
+('Python-Developer'),
+('Java-Developer'),
+('.NET-Developer'),
+('Learn DS&ML'),
+('C++ -Developer');
+
+# joining tables using join
+SELECT db_info.course.name_course,
+       db_info.groups.name_group
+FROM db_info.groups
+JOIN db_info.course on db_info.course.group_id = db_info.groups.group_id;
+
+# forming the query "Who is our Python developer?"
+SELECT db_info.students.first_name,
+       db_info.students.last_name,
+       db_info.course.course_id,
+       db_info.course.name_course
+FROM db_info.students, db_info.course
+WHERE db_info.course.name_course = 'Python-Developer';
+
+# deleting data in a table where indexes are less than zero
+DELETE FROM db_info.course WHERE course_id > 0;
+DELETE FROM db_info.groups WHERE group_id > 0;
+DELETE FROM db_info.teachers WHERE id > 0;
+DELETE FROM db_info.students WHERE id > 0;
+
