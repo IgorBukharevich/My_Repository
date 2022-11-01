@@ -1,4 +1,4 @@
-#!/home/igorbukharevich/PycharmProjects/my_hw_15/venv_one/bin/python
+#!/home/igorbukharevich/PycharmProjects/pythonProject/My_Repository/HW_15/venv_one/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
