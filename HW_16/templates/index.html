@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>APP FLASK</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body>
+<h1>Hi everybody!</h1>
+<h2>This is a menu of links to my repository</h2>
+<a href="{{ url_for('my_repository') }}"><p><h3>My repository</h3></a>
+<a href="{{ url_for('my_pull') }}"><h3>Pull requests</h3></a>
+</body>
+</html>
