@@ -25,3 +25,7 @@ Hi there!
 - HW_12: Database and SQL part 1
                           
 - HW_13: Database and SQL part 2
+
+- HW_15: The Python Ecosystem
+
+-HW_16: Introduction to Web Development
