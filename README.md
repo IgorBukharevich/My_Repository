@@ -30,4 +30,6 @@ Hi there!
 
 - HW_16: Introduction to Web Development
 
-- HW_17: FlaskAPP + Postgres
+- HW_17: FlaskAPP + Postgresql
+
+- HW_18: Django(+ Postgresql): Part 1 /
