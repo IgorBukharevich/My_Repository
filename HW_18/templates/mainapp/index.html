@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Welcome</title>
-</head>
-    <body>
-    <h1>Welcome Main Page!</h1>
-    <div class="content">
-    </div>
+{% extends 'mainapp/base.html' %}
 
-    </body>
-</html>
+{% block title %}
+PixelsCiNEMA
+{% endblock %}
+
+{% block content %}
+    <p>Смотри вместе с нами, наше любимое кино!</p>
+    <h1 class="mainheading">
+    Премьера каждую неделю
+    </h1>
+    <a href="{% url 'registration' %}" class="btn">Заказать билет</a>
+{% endblock %}
