@@ -1,0 +1,233 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+* {
+ margin: 0;
+ padding: 0;
+}
+
+h1 {
+    color: green;
+    font-family: 'Press Start 2P', cursive;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    background: url('../img/font_header.jpg') 0 0 repeat;
+}
+
+.logo {
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    width: 1170px;
+    /*позиционирование по центру*/
+    margin: 0 auto;
+}
+
+ul, li {
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+.header {
+    padding-top: 28px;
+    padding-bottom: 400px;
+}
+
+header a {
+    color: #fff;
+}
+
+.menu {
+    display: flex;
+    padding-left: 59px;
+    letter-spacing: 0.1em;
+}
+
+.menu li a {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.menu li {
+    margin: 20px;
+}
+
+.tel {
+    font-size: 17px;
+    text-decoration: none;
+    margin-left: auto;
+    letter-spacing: 0.1em;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+p {
+    color: white;
+    font-size: 25px;
+}
+
+.offer {
+    text-transform: uppercase;
+    padding-top: 210px;
+}
+
+.offer p {
+    font-size: 20px;
+    letter-spacing: 0.1em;
+}
+
+.offer h1 {
+    color: yellow;
+    padding-bottom: 30px;
+    margin-top: 3px;
+    letter-spacing: 0.02em;
+    font-size: 40px;
+}
+
+.btn {
+    font-family: 'Orbitron', sans-serif;
+    display: block;
+    font-size: 17px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    padding: 17px 47px;
+    border: thick double #fff;
+    width: 238px;
+    text-decoration: none;
+}
+
+.footer-text {
+    font-size: 3px;
+    font-family: "Open Sans", sans-serif;
+    display: flex;
+    padding: 0;
+}
+
+.footer-text p {
+    font-size: 14px;
+    margin-right: 30px;
+    color: white;
+}
+
+footer {
+    background: black;
+    flex: 0 0 auto;
+}
+
+.reg-ticket  {
+    font-size: small;
+}
+
+.offer img {
+    border-radius: 10px 10px 10px 10px;
+    border: 3px solid white;
+}
+
+.scrol {
+    padding-right: 40px;
+}
+
+.right_inf {
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    border-radius: 10px 10px 10px 10px;
+    border: 3px solid #fafafa;
+    background-color: #fff;
+    background-color: rgba(255,255,255,0.5);
+}
+
+.right_inf p {
+    color: #000;
+}
+
+.menu li{
+  transition: 1s; /* Время эффекта */
+  text-align: center;
+}
+
+.menu li:hover {
+  transform: scale(1.2); /* Увеличиваем масштаб */
+}
+
+.btn:hover {
+    transition: 1s;
+    transform: scale(1.2);
+}
+
+.offer img {
+    font-size: 100px;
+}
+
+.page {
+    overflow: hidden;
+    display: flex;
+    flex-direction:column;
+    min-height: 100vh;
+}
+
+footer {
+    margin-top: auto;
+}
+
+img:hover{
+    transition: 1s;
+    transform: scale(2);
+    border: 3px solid #413f3f;
+}
+
+#left {
+    width: 200px; /* Ширина слоя */
+    float: left; /* Обтекание с соседним слоем */
+    padding: 10px; /* Внутренние поля вокруг содержимого */
+}
+
+#right {
+    width: 550px; /* Ширина слоя */
+    float: left; /* Обтекание с соседним слоем */
+    padding: 10px; /* Внутренние поля вокруг содержимого */
+}
+
+#bot {
+    margin-top: 40px;
+    text-align: justify;
+    clear:left; /* возвращаем блочность и располагаем слой слева */
+    padding: 10px; /* Внутренние поля вокруг содержимого */
+    color:#fff; /* цвет текста */
+    margin-right: auto; /* Авто-отступ справа */
+    margin-left: auto; /* Авто-отступ слева */
+}

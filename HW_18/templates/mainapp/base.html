@@ -1,12 +1,70 @@
-<!DOCTYPE html>
-<html>
+{% load static %}
+<!doctype html>
+<html lang="ru">
 <head>
-    <title>Welcome</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>{% block title %}{% endblock %}</title>
 </head>
-    <body>
-    <h1>Welcome 2 Page!</h1>
-    <div class="content">
-    </div>
-
-    </body>
+<body>
+<div class="page">
+    <header id="header" class="header">
+        <div class="container">
+            <div class="nav">
+                <h4 class="logo">PixelsCiNEMA</h4>
+                <ul class="menu">
+                    <li>
+                        <a href="{% url 'home' %}">
+                            Главная
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'poster' %}">
+                            Афиша
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'registration' %}">
+                            Бронь билета
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'about' %}">
+                            О кинотеатре
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contact' %}">
+                            Контакты
+                        </a>
+                    </li>
+                </ul>
+                <a href="tel: +000-000-00-00" class="tel">
+                    +000-000-00-00
+                </a>
+            </div>
+            <div class="offer">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </header>
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div style="float: bottom" class="footer-text">
+                <p>
+                ©2022 z31-onl
+                </p>
+                <p>
+                    Igor Bukharevich
+                </p>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
 </html>

@@ -1,0 +1,44 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ movie.title_movie }}
+{% endblock %}
+
+{% block content %}
+    <div class="head_movie">
+            <div id="container">
+                    <div id="left">
+                        <img src="{{ movie.poster_movie.url }}" height="524" width="336">
+                    </div>
+                    <div id="right">
+                        <h1>{{ movie.title_movie }}</h1>
+                    <hr>
+                        <p>Слоган: {{ movie.tagline_movie }}</p>
+                    <hr>
+                        <p>Год: {{ movie.year_movie }}</p>
+                        <p>Страна: {{ movie.country_movie }}</p>
+                        <p>Режиссер:
+                        {% for diretor in movie.directors_movie.all %}
+                            {{ diretor.name_actor }}<br>
+                        {% endfor %}</p>
+                        <p>Aктеры:
+                        {% for actor in movie.actors_movie.all %}
+                            {{ actor.name_actor }}<br>
+                        {% endfor %}</p>
+                        <p>Жанры:
+                        {% for genre in movie.genres_movie.all %}
+                            {{ genre.name_genre }}<br>
+                        {% endfor %}</p>
+                        <p>Премьера в мире: {{ movie.world_premiere_movie }}</p>
+                        <p>Бюджет: {{ movie.budget_movie }} $</p>
+                        <p>Сборы в США: {{ movie.fees_in_usa_movie }} $</p>
+                        <p>Сборы в мире: {{ movie.fess_in_world_movie }} $</p>
+                    </div>
+                    <div id="bot">
+                        <b>Описание:</b>
+                        <p>{{ movie.description_movie }}</p>
+                    </div>
+            </div>
+    </div>
+{% endblock %}
