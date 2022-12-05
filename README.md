@@ -32,4 +32,4 @@ Hi there!
 
 - HW_17: FlaskAPP + Postgresql
 
-- HW_18: Django(+ Postgresql): Part 1 /
+- HW_18: Django(+ Postgresql): Part 1 / 2 / 3 / 4
