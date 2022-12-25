@@ -301,9 +301,25 @@ class Reviews(models.Model):
         return f"{self.name_review} - {self.movie_review}"
 
 
+class Hall(models.Model):
+    """Hall model"""
+    class Meta:
+        verbose_name = u'Зал'
+        verbose_name_plural = u'Залы'
+
+    hall_name = models.CharField(
+        max_length=100,
+        blank=True,
+        null=True,
+        verbose_name=u'Название зала',
+    )
+
+    def __str__(self):
+        return f'{self.hall_name}'
+
+
 class TimeShow(models.Model):
     """Model DateTimeShow"""
-
     class Meta:
         verbose_name = u'Дата/Время Показа'
         verbose_name_plural = u'Дата/Время показов'
@@ -315,10 +331,10 @@ class TimeShow(models.Model):
         verbose_name='Дата/Время показа'
     )
 
-    title_film = models.ForeignKey(
+    title_movie = models.ForeignKey(
         Movie,
         verbose_name=u'Название фильма',
-        related_name='film_title_movie',
+        related_name='title_movie_date_shownoe',
         blank=True,
         null=True,
         on_delete=models.PROTECT,
@@ -330,16 +346,40 @@ class TimeShow(models.Model):
         verbose_name=u'Стоимость билета'
     )
 
+    hall = models.ForeignKey(
+        Hall,
+        verbose_name=u'id Зала',
+        related_name='id_hall_place',
+        blank=True,
+        null=True,
+        on_delete=models.PROTECT,
+    )
+
     def __str__(self):
         return f'{self.date_time_show}'
 
 
 class HallPlace(models.Model):
     """Hall Place model"""
-
     class Meta:
-        verbose_name = u'Зал'
-        verbose_name_plural = u'Залы'
+        verbose_name = u'Место'
+        verbose_name_plural = u'Места'
+
+    hall_name = models.ForeignKey(
+        Hall,
+        verbose_name=u'Название зала',
+        related_name='hall_name_place',
+        blank=True,
+        null=True,
+        on_delete=models.PROTECT,
+    )
+
+    level = models.CharField(
+        max_length=100,
+        blank=True,
+        null=True,
+        verbose_name=u'Уровень',
+    )
 
     place = models.CharField(
         unique=True,
@@ -350,12 +390,11 @@ class HallPlace(models.Model):
     )
 
     def __str__(self):
-        return f'{self.place}'
+        return f'{self.place} - {self.level}'
 
 
 class RegistrationVisitors(models.Model):
     """Registration Visitors model"""
-
     class Meta:
         verbose_name = u'Регистрация Посетителя'
         verbose_name_plural = u'Регистрация Посетителей'
@@ -363,25 +402,32 @@ class RegistrationVisitors(models.Model):
     data_time_show = models.ForeignKey(
         TimeShow,
         verbose_name=u'Дата/Время показа',
-        related_name='data_time_show',
+        related_name='movie_data_time_show',
         blank=False,
         on_delete=models.PROTECT,
     )
 
-    title_films = models.ForeignKey(
+    title_movie = models.ForeignKey(
         Movie,
         verbose_name=u'Название',
-        related_name='title_film_view_visitor',
+        related_name='title_movie_view_visitor',
         blank=False,
         on_delete=models.PROTECT,
     )
 
-    place_visitor = models.ForeignKey(
-        HallPlace,
-        verbose_name=u'Место',
-        related_name='place_visitor_view',
-        blank=False,
+    hall = models.ForeignKey(
+        Hall,
+        verbose_name=u'Зал',
+        related_name='hall_time_show',
+        blank=True,
+        null=True,
         on_delete=models.PROTECT,
+    )
+
+    place = models.ManyToManyField(
+        HallPlace,
+        verbose_name=u'Место в зале',
+        related_name='place_hall_visitor',
     )
 
     name_visitor = models.CharField(
@@ -402,16 +448,8 @@ class RegistrationVisitors(models.Model):
         verbose_name=u'Email',
     )
 
-    price_ticket = models.ForeignKey(
-        TimeShow,
-        verbose_name=u'Стоимость билета',
-        related_name='price_ticket_visitor',
-        blank=False,
-        on_delete=models.PROTECT,
-    )
-
     def __str__(self):
         return (
             f'{self.name_visitor} - '
-            f'{self.last_name_visitor}>'
+            f'{self.last_name_visitor}'
         )

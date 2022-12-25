@@ -231,3 +231,14 @@ img:hover{
     margin-right: auto; /* Авто-отступ справа */
     margin-left: auto; /* Авто-отступ слева */
 }
+
+#right_view_place {
+    width: 550px; /* Ширина слоя */
+    float: right; /* Обтекание с соседним слоем */
+    padding: 10px; /* Внутренние поля вокруг содержимого */
+}
+
+.place {
+    padding-top: 10px;
+    padding-right: 10px;
+}
