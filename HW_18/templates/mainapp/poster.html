@@ -11,7 +11,7 @@
         {% for img in poster_img %}
                 {% if img.poster_movie %}
 
-                    <a class="scrol" href="{% url 'movie_info' img.id %}">
+                    <a class="scrol" href="{% url 'space_main_apps:movie_info' img.id %}">
                         <img id="img.id"
                              class="img-circle"
                              src="{{ img.poster_movie.url }}"

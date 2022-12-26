@@ -7,34 +7,17 @@
 
 {% block content %}
     <h1>Бронирование билета</h1>
-    <div class="registration_visitor">
-        <p><label>Имя: </label><input type="text" name="name" value="" required /></p>
-        <p><label>Фамилия: </label><input  type="text" name="age" value="" required /></p>
-        <p><label>Email: </label><input type="text" name="city" value="" required /></p>
-        <p><label>Стоимость: </label></p>
-
-        <p>
-            <label>Название фильма: </label>
-
-                <select name="movie" id="movie_select">
-
-                    <option>--Выберите фильм--</option>
-                    {% for movie in list_movie %}
-                        <option value="{{ movie.id }}">{{ movie.title_movie }}</option>
-                    {% endfor %}
-                </select>
-        </p>
-
-        <p>
-            <label>Дата и время показа: </label>
-
-                <select name="date_time_show" id="date_time_select">
-                    <option>--Дата/время показа--</option>
-                    {% for date_time in date_time_movie %}
-                            <option value="{{ date_time.id }}">{{ date_time.date_time_show }} </option>
-                    {% endfor %}
-                </select>
-        </p>
-
-    </div>
+    <form method="post" id="registrationForm">
+        {% csrf_token %}
+        {{ form.name_visitor }}<br>
+        {{ form.last_name_visitor }}<br>
+        {{ form.email_visitor }}<br>
+        {{ form.title_movie }}<br>
+        {{ form.data_time_show }}<br>
+        {{ form.hall }}<br>
+        {{ form.place }}<br>
+        <br>
+        <br>
+        <button class="btn btn btn-success" type="submit">Забронировать</button>
+    </form>
 {% endblock %}

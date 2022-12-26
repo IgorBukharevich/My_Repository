@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="#">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,27 +19,27 @@
                 <h4 class="logo">PixelsCiNEMA</h4>
                 <ul class="menu">
                     <li>
-                        <a href="{% url 'home' %}">
+                        <a href="{% url 'space_main_apps:home' %}">
                             Главная
                         </a>
                     </li>
                     <li>
-                        <a href="{% url 'poster' %}">
+                        <a href="{% url 'space_main_apps:poster' %}">
                             Афиша
                         </a>
                     </li>
                     <li>
-                        <a href="{% url 'registration' %}">
+                        <a href="{% url 'space_main_apps:registration' %}">
                             Бронь билета
                         </a>
                     </li>
                     <li>
-                        <a href="{% url 'about' %}">
+                        <a href="{% url 'space_main_apps:about' %}">
                             О кинотеатре
                         </a>
                     </li>
                     <li>
-                        <a href="{% url 'contact' %}">
+                        <a href="{% url 'space_main_apps:contact' %}">
                             Контакты
                         </a>
                     </li>
@@ -67,4 +68,7 @@
     </footer>
 </div>
 </body>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="{% static 'js/function.js' %}"></script>
+{% block javascript %}  {% endblock javascript %}
 </html>
