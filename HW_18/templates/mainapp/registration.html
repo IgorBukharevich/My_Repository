@@ -12,12 +12,15 @@
         {{ form.name_visitor }}<br>
         {{ form.last_name_visitor }}<br>
         {{ form.email_visitor }}<br>
-        {{ form.title_movie }}<br>
-        {{ form.data_time_show }}<br>
+        <select name="title_movie" id="select_title_movie" class="form-control">
+        </select>
+        <select name="date_time_show" id="select_date_show" class="form-control">
+        </select>
         {{ form.hall }}<br>
         {{ form.place }}<br>
         <br>
         <br>
         <button class="btn btn btn-success" type="submit">Забронировать</button>
+        <H5>{{ sucse }}</H5>
     </form>
 {% endblock %}

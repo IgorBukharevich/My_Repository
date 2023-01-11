@@ -29,6 +29,8 @@ class CategoryAdmin(admin.ModelAdmin):
 
     list_filter = ('name_category',)
 
+    prepopulated_fields = {'url': ('name_category',)}
+
 
 @admin.register(Movie)
 class MovieAdmin(admin.ModelAdmin):
@@ -60,6 +62,8 @@ class MovieAdmin(admin.ModelAdmin):
     )
 
     readonly_fields = ('get_image',)
+
+    prepopulated_fields = {'url_movie': ('title_movie',)}
 
     def get_image(self, obj):
         return mark_safe(
@@ -101,6 +105,8 @@ class GenreAdmin(admin.ModelAdmin):
     list_filter = ('name_genre',)
 
     search_fields = ('name_genre',)
+
+    prepopulated_fields = {'url_genre': ('name_genre',)}
 
 
 @admin.register(MovieShots)

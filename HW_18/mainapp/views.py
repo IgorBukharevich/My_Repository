@@ -1,8 +1,40 @@
 from django.shortcuts import render
-from django.shortcuts import get_object_or_404, render
+from django.views.generic.base import View
 
 from mainapp.models import *
 from .forms import RegistrationVisitorsForm
+
+
+class MovieView(View):
+    """List Movies"""
+    def get(self, request):
+        movies = Movie.objects.all().order_by('title_movie')
+
+        context = {
+            'movies': movies
+        }
+        return render(request, 'mainapp/poster.html', context)
+
+
+class MovieDetailView(View):
+    """Full description selected Movie"""
+    def get(self, request, movie_id: int):
+        """
+        Function Render 'templates/mainapp.infmovie.html'
+        List Movie
+        :param movie_id:
+        :param request:
+        :return:
+        """
+        movie = Movie.objects.get(pk=movie_id)
+
+        context = {
+            'movie': movie,
+        }
+
+        return render(
+            request, 'mainapp/infmovie.html', context
+        )
 
 
 def index(request):
@@ -25,14 +57,15 @@ def base(request):
 def registration(request):
     """
     Function Render 'templates/mainapp/registration.html'
-    # TODO: ПРОВЕРКА ПРАВИЛЬНОСТИ ПОЛЕЙ ДЛЯ ЗАПОЛЕНИЯ И ТАК ЖЕ ПРИ ПОЛОЖИТЕЛЬНОМ ОТВЕТЕ СОХАРЕНЕНИЯ ЗАПОЛНЕНЫХ ПОЛЕЙ В БД
     :return: registration.html
     """
     error = ''
+    sucse = ''
     if request.method == 'POST':
         form = RegistrationVisitorsForm(request.POST)
         if form.is_valid():
             form.save()
+            sucse = 'Вы успешно забронировали билет!'
         else:
             error = 'Форма заполнена неверно!'
     form = RegistrationVisitorsForm()
@@ -40,44 +73,10 @@ def registration(request):
     data = {
         'form': form,
         'error': error,
+        'sucse': sucse,
     }
     return render(request, 'mainapp/registration.html', data)
 # -----------------------------------------------------------------------------
-
-
-def poster(request):
-    """
-    Function Render 'templates/mainapp.poster.html'
-    :return: poster.html
-    """
-    poster_img = Movie.objects.all()
-
-    return render(
-        request, 'mainapp/poster.html', {'poster_img': poster_img}
-    )
-
-
-def movie_info(request, movie_id: int):
-    """
-    Function Render 'templates/mainapp.infmovie.html'
-    List Movie
-    :param movie_id:
-    :param request:
-    :return:
-    """
-    list_place = HallPlace.objects.all()
-    movie = Movie.objects.filter(id=movie_id).first()
-    date_show = TimeShow.objects.filter(title_movie_id=movie)
-
-    context = {
-        'movie': movie,
-        'date_show': date_show,
-        'list_place': list_place,
-    }
-
-    return render(
-        request, 'mainapp/infmovie.html', context
-    )
 
 
 def about(request):

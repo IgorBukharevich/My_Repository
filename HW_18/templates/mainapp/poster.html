@@ -6,12 +6,21 @@
 {% endblock %}
 
 {% block content %}
+{#    <div class="search-bar">#}
+{#        <h3>Поиск фильма</h3>#}
+{#            <form action="{% url 'space_main_apps:search' %}" method="get" class="d-flex editContent">#}
+{#                <input type="search" placeholder="Введите название..." name="q" class="form-control" required="">#}
+{#                <button type="submit" class="btn1 btn">#}
+{#                    <span class="fa fa-search" aria-hidden="true"></span>#}
+{#                </button>#}
+{#            </form>#}
+{#    </div>#}
     <div class="poster_movie" align="center">
 
-        {% for img in poster_img %}
+        {% for img in movies %}
                 {% if img.poster_movie %}
 
-                    <a class="scrol" href="{% url 'space_main_apps:movie_info' img.id %}">
+                    <a class="scrol" href="/{{ img.url_movie }}/">
                         <img id="img.id"
                              class="img-circle"
                              src="{{ img.poster_movie.url }}"
