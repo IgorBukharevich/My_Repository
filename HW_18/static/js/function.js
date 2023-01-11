@@ -8,7 +8,7 @@ $(document).ready(function() {
         localStorage.setItem('opt1', opt1);
         $('#price').html("");
         select_date_show.empty();
-        select_date_show.append(`<option value="0">-Выбрать-</option>`);
+        select_date_show.append(`<option value="0">-Дата показа-</option>`);
         $.ajax({
             type: 'GET',
             url: 'api/date_shows/from_movie/' + opt1,
@@ -24,8 +24,8 @@ $(document).ready(function() {
         });
     });
 
-    select_title_movie.append(`<option value="0">-Выбрать-</option>`);
-    select_date_show.append(`<option value="0">-Выбрать-</option>`);
+    select_title_movie.append(`<option value="0">-Название фильма-</option>`);
+    select_date_show.append(`<option value="0">-Дата показа-</option>`);
     $.ajax({
         url:  'api/movies/',
         success: function(response) {
